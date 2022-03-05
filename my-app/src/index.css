@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    background-color: rgb(231, 158, 61);
+}
+.icon{
+    background-image: linear-gradient(to right bottom, rgb(251, 219, 137), rgb(244, 137, 130));
+}
+.title{
+    color: rgb(245, 154, 131);
+}
