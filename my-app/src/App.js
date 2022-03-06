@@ -22,7 +22,7 @@ function App() {
   },[]);
 
   return (
-    <div className="w-4/5 mt-16 mx-auto rounded-t-lg bg-white">
+    <div className="w-5/6 mt-16 mx-auto rounded-t-lg bg-white">
         <Header/>
         <div className='flex justify-between'>
         <ProductList recipesList = {recipes}/>
