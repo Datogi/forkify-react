@@ -9,7 +9,8 @@ import ShoppingList from './components/Layout/ShoppingList';
 function App() {
 
   const [query, setQuery] = useState('pizza');
-  const [recipes, setRecipes] = useState([])
+  const [recipes, setRecipes] = useState([]);
+  const [recipe, setRecipe] = useState({});
 
   useEffect(() => {
     async function fetchData(){
@@ -29,8 +30,8 @@ function App() {
     <div className="w-5/6 mt-16 mx-auto rounded-t-lg bg-white">
         <Header changeQuery={setQuery}/>
         <div className='flex justify-between'>
-        <ProductList recipesList = {recipes}/>
-        <Main/> 
+        <ProductList recipesList={recipes} changeRecipeObj={setRecipe}/>
+        <Main recipeObj={recipe} changeRecipeObj={setRecipe}/> 
         <ShoppingList/>
         </div>
     </div>

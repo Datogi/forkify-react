@@ -1,9 +1,10 @@
 
 
 
-export default function Main () {
+export default function Main({recipeObj}) {
     
     return(
-        <h1>Main</h1>
+        
+        <h1>{recipeObj?.title}</h1>
     )
 }
