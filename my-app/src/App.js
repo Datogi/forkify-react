@@ -14,7 +14,7 @@ function App() {
 
   useEffect(() => {
     async function fetchData(){
-      const data = await fetch(`https://forkify-api.herokuapp.com/api/search?q=pizza`); 
+      const data = await fetch(`https://forkify-api.herokuapp.com/api/search?q=${query}`); 
       if(data.status == 200){
         const res = await data.json();
         setRecipes(res.recipes);
