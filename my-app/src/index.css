@@ -11,3 +11,11 @@ body{
 .title{
     color: rgb(245, 154, 131);
 }
+
+.shopping-list-button{
+    background-image: linear-gradient(to right bottom, #FBDB89, #F48982);
+}
+
+.border-text{
+    border-color: rgb(245, 154, 131);
+}

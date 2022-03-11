@@ -14,7 +14,7 @@ function App() {
 
   useEffect(() => {
     async function fetchData(){
-      const data = await fetch(`https://forkify-api.herokuapp.com/api/search?q=${query}`); 
+      const data = await fetch(`https://forkify-api.herokuapp.com/api/search?q=pizza`); 
       if(data.status == 200){
         const res = await data.json();
         setRecipes(res.recipes);
@@ -27,7 +27,7 @@ function App() {
   },[query]);
 
   return (
-    <div className="w-5/6 mt-16 mx-auto rounded-t-lg bg-white">
+    <div className="w-5/6 mt-16 mx-auto rounded-t-lg bg-white ">
         <Header changeQuery={setQuery}/>
         <div className='flex justify-between'>
         <ProductList recipesList={recipes} changeRecipeObj={setRecipe}/>

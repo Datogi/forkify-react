@@ -4,6 +4,8 @@
 export default function ShoppingList(){
     
     return(
-        <h1>Shopping List</h1>
+        <div className="w-1/4">
+            <h1>Shopping List</h1>
+        </div>
     )
 }
