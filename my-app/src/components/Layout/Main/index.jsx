@@ -2,7 +2,6 @@
 
 
 export default function Main({recipeObj}) {
-  console.log(recipeObj)
     return( 
     
         <div className="flex flex-col w-2/4">

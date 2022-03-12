@@ -8,7 +8,7 @@ import ShoppingList from './components/Layout/ShoppingList';
 
 function App() {
 
-  const [query, setQuery] = useState('pizza');
+  const [query, setQuery] = useState('popcorn');
   const [recipes, setRecipes] = useState([]);
   const [recipe, setRecipe] = useState({});
 
@@ -27,10 +27,10 @@ function App() {
   },[query]);
 
   return (
-    <div className="w-5/6 mt-16 mx-auto rounded-t-lg bg-white ">
+    <div className="w-5/6 mt-16 mx-auto rounded-t-lg bg-white height">
         <Header changeQuery={setQuery}/>
         <div className='flex justify-between'>
-        <ProductList recipesList={recipes} changeRecipeObj={setRecipe}/>
+        <ProductList recipesList={recipes} query={query} changeRecipeObj={setRecipe}/>
         <Main recipeObj={recipe} changeRecipeObj={setRecipe}/> 
         <ShoppingList/>
         </div>
