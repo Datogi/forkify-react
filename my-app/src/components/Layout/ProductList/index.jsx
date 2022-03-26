@@ -1,16 +1,23 @@
-import { useState, useEffect, useReducer } from "react";
+import { useState, useEffect} from "react";
+
+
 
 export default function ProductList({recipesList,  changeRecipeObj}){
-    console.log(recipesList)
-    const [ viewList, setViewList ]= useState(recipesList.slice(0,10));
+    const [ viewList, setViewList ]= useState([]);
     const [ page, setPage ] = useState(1);
-    const [ backBtn, setBackBtn ] = useState(true);
-    const [ nextBtn, setNextBtn ] = useState(true);
+    const [ backBtn, setBackBtn ] = useState(false);
+    const [ nextBtn, setNextBtn ] = useState(false);
     const pages =Math.round(recipesList.length/10)
-    
+
+    useEffect(() => {
+        setViewList(recipesList.slice(0,10))
+        setPage(1)
+        recipesList.length >0 && setNextBtn(true)
+        setBackBtn(false)
+        
+    },[recipesList])
  
     useEffect(() => {
-        console.log('p')
         renderResult()
     },[page])
 
@@ -39,7 +46,7 @@ export default function ProductList({recipesList,  changeRecipeObj}){
         }
       setNextBtn(true)  
       setPage(page-1)
-      console.log(page)}
+      }
 
     
     async function fetchData(id){
@@ -60,19 +67,19 @@ export default function ProductList({recipesList,  changeRecipeObj}){
         <div className="w-1/4 flex flex-col border-r-2 h-screen">
          
                     
-                    {viewList.length>0 ? viewList.map(el =>{
+                    {viewList.length > 0 ? viewList.map(el =>{
                         return(
                             
                             <div key={el.recipe_id} className='px-4 shadow-md pb-1'> 
                                 <a onClick={() => handlerAnchor(el.recipe_id)} href={`#${el.recipe_id}`} className='flex items-center ml-2 mt-2 hover:bg-gray-100  '> 
-                                    <img className="w-16 h-16 rounded-full " src={el.image_url} alt={el.title} />
-                                    <p className="ml-2 text-base italic title" >{el.title}</p>
+                                     <img className="w-16 h-16 rounded-full " src={el.image_url } alt={el.title} /> 
+                                    <p className="ml-2 text-base italic title" > {el.title } </p>
                                 </a>
                             </div>
                             
                         )
                     }):
-                    <p className="flex">no result</p>
+                    <p className="flex justify-center text-xl">no result</p>
               
            } 
             <div className="flex  mt-2">
@@ -80,7 +87,7 @@ export default function ProductList({recipesList,  changeRecipeObj}){
                     {backBtn && <button onClick={() => backBtnHandler()} className="shopping-list-button h-10 rounded-full w-3/5 " >back</button>}
                 </div>
                 <div className="w-1/2 flex justify-end">
-                    {nextBtn && <button onClick={() => nextBtnHandler()} className="shopping-list-button h-10 rounded-full w-3/5 ">Next</button>}
+                    {nextBtn  && <button onClick={() => nextBtnHandler()} className="shopping-list-button h-10 rounded-full w-3/5 ">Next</button>}
                 </div>
             </div>
         </div>

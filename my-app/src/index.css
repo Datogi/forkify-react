@@ -20,5 +20,5 @@ body{
     border-color: rgb(245, 154, 131);
 }
 .height{
-    height: 180vh;
+    min-height: 180vh;
 }
